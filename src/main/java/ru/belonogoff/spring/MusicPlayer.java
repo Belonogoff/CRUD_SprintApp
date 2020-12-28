@@ -1,13 +1,48 @@
 package ru.belonogoff.spring;
 
-public class MusicPlayer {
-    private Music music;
+import java.util.ArrayList;
+import java.util.List;
 
-    public MusicPlayer(Music music) {
-        this.music = music;
+public class MusicPlayer {
+
+    private List<Music> playList = new ArrayList<>();
+    private String name;
+    private String volume;
+
+    public MusicPlayer(List<Music> playList) {
+        this.playList = playList;
+    }
+
+    public MusicPlayer() {
     }
 
     public void playMusic() {
-        System.out.println("Playing " + music.getSong());
+        for (Music song : playList) {
+            System.out.println("Playing " + song.getSong());
+        }
+    }
+
+    public List<Music> getPlayList() {
+        return playList;
+    }
+
+    public void setPlayList(List<Music> playList) {
+        this.playList = playList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 }

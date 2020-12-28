@@ -13,5 +13,9 @@
     <bean id="rockMusicBean"
           class="ru.belonogoff.spring.RockMusic">
     </bean>
+    <bean id="musicPlayer"
+          class="ru.belonogoff.spring.MusicPlayer">
+        <constructor-arg ref="classicalMusicBean"/>
+    </bean>
 
 </beans>

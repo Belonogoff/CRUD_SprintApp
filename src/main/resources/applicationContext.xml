@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+    <context:property-placeholder location="classpath:musicPlayer.properties"/> <!-- import musicPlayer.properties -->
 
     <bean id="classicalMusicBean"
           class="ru.belonogoff.spring.ClassicalMusic">
@@ -24,7 +24,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="ru.belonogoff.spring.MusicPlayer">
+          class="ru.belonogoff.spring.MusicPlayer"
+          scope="prototype">
         <property name="playList">
             <list>
                 <ref bean="classicalMusicBean"/>
@@ -33,7 +34,7 @@
             </list>
         </property>
 
-        <property name="name" value="${musicPlayer.name}"/> <!--setter-->
+        <property name="name" value="${musicPlayer.name}"/>        <!--setter-->
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 

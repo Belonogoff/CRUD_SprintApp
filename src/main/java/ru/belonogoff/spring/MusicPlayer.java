@@ -7,7 +7,7 @@ public class MusicPlayer {
 
     private List<Music> playList = new ArrayList<>();
     private String name;
-    private String volume;
+    private int volume;
 
     public MusicPlayer(List<Music> playList) {
         this.playList = playList;
@@ -38,11 +38,11 @@ public class MusicPlayer {
         this.name = name;
     }
 
-    public String getVolume() {
+    public int getVolume() {
         return volume;
     }
 
-    public void setVolume(String volume) {
+    public void setVolume(int volume) {
         this.volume = volume;
     }
 }

@@ -8,41 +8,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
-
-    <context:property-placeholder location="classpath:musicPlayer.properties"/> <!-- import musicPlayer.properties -->
-
-    <bean id="classicalMusicBean"
-          class="ru.belonogoff.spring.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic">
-    </bean>
-
-    <bean id="rockMusicBean"
-          class="ru.belonogoff.spring.RockMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          scope="prototype">
-    </bean>
-
-    <bean id="rapMusicBean"
-          class="ru.belonogoff.spring.RapMusic">
-    </bean>
-
-    <bean id="musicPlayer"
-          class="ru.belonogoff.spring.MusicPlayer"
-          scope="prototype">
-        <property name="playList">
-            <list>
-                <ref bean="classicalMusicBean"/>
-                <ref bean="rockMusicBean"/>
-                <ref bean="rapMusicBean"/>
-            </list>
-        </property>
-
-        <property name="name" value="${musicPlayer.name}"/>        <!--setter-->
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
-
+   <context:component-scan base-package="ru.belonogoff.spring"/> <!-- где искать бины -->
 
 </beans>

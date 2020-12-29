@@ -1,24 +1,31 @@
 package ru.belonogoff.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
 
 @Component
 public class MusicPlayer {
 
-    private Music classicalMusic;
-    private Music rockMusic;
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
 
     @Autowired
-    public MusicPlayer(@Qualifier("classicalMusic") Music classicalMusic,
-                       @Qualifier("rockMusic") Music rockMusic) {
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
         this.classicalMusic = classicalMusic;
         this.rockMusic = rockMusic;
     }
 
-    public String playMusic() {
-        return "Playing: " + classicalMusic.getSong() + ", " + rockMusic.getSong();
+    public void playMusic(PlayList playList) {
+
+        Random random = new Random();
+        int randomNumber = random.nextInt(3);
+
+        if (playList == PlayList.CLASSICAL) {
+            System.out.println(classicalMusic.getSong().get(randomNumber));
+        } else {
+            System.out.println(rockMusic.getSong().get(randomNumber));
+        }
     }
 }

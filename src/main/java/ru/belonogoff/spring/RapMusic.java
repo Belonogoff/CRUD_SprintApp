@@ -1,14 +1,15 @@
 package ru.belonogoff.spring;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class RapMusic implements Music{
 
-    List<String> playList = Arrays.asList("Eminem", "50 Cent", "Snoop Dog");
-
     @Override
-    public List<String> getSong() {
-        return playList;
+    public String getSong() {
+        return "Stan";
     }
 }

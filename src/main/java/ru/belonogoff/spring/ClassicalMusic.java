@@ -1,17 +1,25 @@
 package ru.belonogoff.spring;
 
 import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
-import java.util.Arrays;
-import java.util.List;
 
 @Component
 public class ClassicalMusic implements Music {
 
-    List<String> playList = Arrays.asList("Бах", "Шуберт", "Чайковский");
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("Doing my initialization");
+    }
+
+    @PreDestroy
+    public void doMyDestroy() {
+        System.out.println("Doing my destruction");
+    }
 
     @Override
-    public List<String> getSong() {
-        return playList;
+    public String getSong() {
+        return "Hungarian Rhapsody";
     }
 }

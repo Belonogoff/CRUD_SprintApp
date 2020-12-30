@@ -6,12 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class RockMusic implements Music{
-
-    List<String> playList = Arrays.asList("Queen", "Rammstein", "Linkin Park");
-
+public class RockMusic implements Music {
     @Override
-    public List<String> getSong() {
-        return playList;
+    public String getSong() {
+        return "Wind cries Mary";
     }
 }

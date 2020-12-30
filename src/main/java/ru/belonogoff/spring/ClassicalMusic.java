@@ -1,11 +1,8 @@
 package ru.belonogoff.spring;
 
-import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-
-@Component
 public class ClassicalMusic implements Music {
 
     @PostConstruct
